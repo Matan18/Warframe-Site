@@ -12,7 +12,7 @@ const Alerts: React.FC = () => {
   return (
     <Container>
       <Title>Alerts</Title>
-      {(alerts[0]) ? (
+      {(!!alerts) ? (
         <List >
           {alerts.map(alert => (
             <ListItem key={alert.id}>

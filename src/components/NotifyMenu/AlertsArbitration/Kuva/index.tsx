@@ -13,7 +13,7 @@ const Kuva: React.FC = () => {
   return (
     <Container>
       <Title>Kuvas</Title>
-      {kuvas[0] ? (
+      {!!kuvas? (
         <List >
           {kuvas.map(kuva => (
             <ListItem key={kuva.node} >
@@ -36,9 +36,7 @@ const Kuva: React.FC = () => {
           ))}
         </List>
       ) : (
-          <div>
             <Title>No momento não há Missões Kuva</Title>
-          </div>
         )}
     </Container>
 
