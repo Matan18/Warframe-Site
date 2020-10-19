@@ -1,5 +1,6 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import WorldsStatus from './WorldsStatus';
+import Events from './Events';
 
 import {
   Container,
@@ -10,6 +11,9 @@ import {
 const NotifyMenu: React.FC = () => {
   const ItemList = itemList;
   const [selectedItem, setSelectedItem] = useState<number | undefined>(undefined);
+  useEffect(() => {
+    console.log("selected: ", selectedItem)
+  }, [selectedItem])
 
   const onItemClick = useCallback((id: number) => {
     ItemList.map((item, index) => {
@@ -39,9 +43,7 @@ const NotifyMenu: React.FC = () => {
           </ListItem>
         ))}
       </List>
-      <div>
-        {!selectedItem ? (ItemList[selectedItem]?.render) : (null)}
-      </div>
+        {(ItemList[selectedItem]?.render)}
     </Container>
   );
 }
@@ -67,30 +69,33 @@ const itemList: IItemList[] = [
     id: 1,
     name: 'Events',
     selected: false,
-    render: (<div />)
+    render: (<Events />)
   },
   {
     id: 2,
     name: 'Alertas/Arbritragens',
     selected: false,
-    render: (<div />)
+    render: (<h1>Alertas</h1>)
   },
   {
     id: 3,
     name: 'Invasions',
     selected: false,
-    render: (<div />)
+    render: (<h1>Invasões</h1>)
+
   },
   {
     id: 4,
     name: 'Syndicato',
     selected: false,
-    render: (<div />)
+    render: (<h1>Syndicatos</h1>)
+
   },
   {
     id: 5,
     name: 'Fissures',
     selected: false,
-    render: (<div />)
+    render: (<h1>Fissures</h1>)
+
   }
 ]
