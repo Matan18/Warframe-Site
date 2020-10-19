@@ -9,6 +9,7 @@ import {
 } from '../../styles/components/NotifyMenu/styles';
 import AlertsArbitration from './AlertsArbitration';
 import Invasions from './Invasions';
+import Syndicate from './Syndicate';
 
 const NotifyMenu: React.FC = () => {
   const ItemList = itemList;
@@ -90,7 +91,7 @@ const itemList: IItemList[] = [
     id: 4,
     name: 'Syndicato',
     selected: false,
-    render: (<h1>Syndicatos</h1>)
+    render: (<Syndicate />)
 
   },
   {
