@@ -4,6 +4,7 @@ import { useFetch } from '../../../../hooks/useFetch';
 import { IArbitrationData } from './Arbitration';
 
 import { Container, Title, Content, Description } from '../../../../styles/components/NotifyMenu/Arbitration/styles';
+import { countDown } from '../../../../utils/countDown';
 
 const Arbitration: React.FC = () => {
   const { platform } = useContext(PlatformContext);
@@ -27,7 +28,7 @@ const Arbitration: React.FC = () => {
             <p>
               (Essas missões geralmente requerem que você tenha completado todo o Mapa Estelar)
           </p>
-            <p>{arbitration.expiry}</p>
+            <p>{countDown(arbitration.expiry)}</p>
           </Description>
         </Content>
       ) : (
