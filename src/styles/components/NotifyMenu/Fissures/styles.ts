@@ -63,7 +63,7 @@ export const ListItem = styled.li`
       height: 65px;
     }
   }
-  p{
+  p:nth-child(2){
     margin: 5px auto;
   }
 `
