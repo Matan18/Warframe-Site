@@ -10,6 +10,7 @@ import {
 import AlertsArbitration from './AlertsArbitration';
 import Invasions from './Invasions';
 import Syndicate from './Syndicate';
+import Fissures from './Fissures';
 
 const NotifyMenu: React.FC = () => {
   const ItemList = itemList;
@@ -98,7 +99,7 @@ const itemList: IItemList[] = [
     id: 5,
     name: 'Fissures',
     selected: false,
-    render: (<h1>Fissures</h1>)
+    render: (<Fissures />)
 
   }
 ]
