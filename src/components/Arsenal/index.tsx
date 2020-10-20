@@ -4,7 +4,29 @@ import { Container, List, ListItem } from '../../styles/components/Arsenal/style
 import Warframes from './Warframes';
 
 const Arsenal: React.FC = () => {
-  const menuItens = MenuItems;
+  const menuItens: IMenuItem[] = [
+    {
+      id: 0,
+      name: 'Warframes',
+      type: 'warframes',
+      selected: false,
+      render: (<Warframes onClickBack={()=>{onItemClick(0)}} />)
+    },
+    {
+      id: 1,
+      name: 'Weapons',
+      type: 'weapons',
+      selected: false,
+      render: (<h1>Weapons</h1>)
+    },
+    {
+      id: 2,
+      name: 'Arcanes',
+      type: 'arcanes',
+      selected: false,
+      render: (<h1>Arcanes</h1>)
+    }
+  ]
   const [selectedItem, setSelectedItem] = useState<number | undefined>(undefined);
 
   const onItemClick = useCallback((id: number) => {
@@ -50,26 +72,4 @@ interface IMenuItem {
   render?: JSX.Element
 }
 
-const MenuItems: IMenuItem[] = [
-  {
-    id: 0,
-    name: 'Warframes',
-    type: 'warframes',
-    selected: false,
-    render: (<Warframes />)
-  },
-  {
-    id: 1,
-    name: 'Weapons',
-    type: 'weapons',
-    selected: false,
-    render: (<h1>Weapons</h1>)
-  },
-  {
-    id: 2,
-    name: 'Arcanes',
-    type: 'arcanes',
-    selected: false,
-    render: (<h1>Arcanes</h1>)
-  }
-]
+

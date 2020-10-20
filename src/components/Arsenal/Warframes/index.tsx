@@ -6,7 +6,10 @@ import { IWarframe } from './Warframe';
 import { Button } from "../../../styles/components/BackButton/styles";
 import { Container, List, ListItem, Warframe } from '../../../styles/components/Arsenal/Warframes/styles';
 
-const Warframes: React.FC = () => {
+interface WarframeProps{
+  onClickBack: ()=>void;
+}
+const Warframes: React.FC<WarframeProps> = ({onClickBack}) => {
   const param = 'warframes';
   const { data: warframes } = useFetch<IWarframe[]>(param);
 
@@ -30,7 +33,7 @@ const Warframes: React.FC = () => {
 
         ))}
       </List>
-      <Button onClick={() => { }} >VOLTAR</Button>
+      <Button onClick={onClickBack} >VOLTAR</Button>
     </Container>
   )
 }
