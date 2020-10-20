@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { useFetch } from '../hooks/useFetch';
 import { PlatformContext } from '../context/Platform';
 import NotifyMenu from '../components/NotifyMenu';
+import Arsenal from '../components/Arsenal';
 
 const Home: React.FC = () => {
   const { platform } = useContext(PlatformContext);
@@ -16,7 +17,7 @@ const Home: React.FC = () => {
         <title>Warframe</title>
       </Head>
       <main>
-        <h1>Hello World</h1>
+        <Arsenal />
         <NotifyMenu />
       </main>
     </div>
