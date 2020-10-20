@@ -6,7 +6,7 @@ export const Container = styled.div`
   margin: 0px;
   background: linear-gradient(to right, ${darken(0.05, '#0e0e53')} 50%,${darken(0.12, '#1212c7')}, #fff );
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   width: 100%;
   height: 10vh;
   max-height: 65px;
@@ -15,4 +15,11 @@ export const Container = styled.div`
 export const Title = styled.h4`
   color: white;
   align-self: center;
+`
+
+export const Line = styled.div`
+  justify-content: space-between;
+  display:flex;
+  flex-direction: row;
+  width: 100%;
 `

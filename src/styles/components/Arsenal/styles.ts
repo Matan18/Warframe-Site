@@ -30,7 +30,7 @@ export const ListItem = styled.li`
       border: 1px solid #e4d873;
       border-bottom: 2px solid #e4d873;
       *{
-        color: #e4d873
+        color: #e4d873;
       }
     }
   }

@@ -15,10 +15,10 @@ export const List = styled.ul`
 export const ListItem = styled.li`
   margin: 0;
   padding: 0;
-  > div{
+  div{
     padding: 5px 0;
     margin: 0 5px;
-    > p{
+    p{
       margin: 0;
       padding: 0;
       color: #ffffff;
