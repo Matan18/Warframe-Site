@@ -6,7 +6,7 @@ import Warframes from './Warframes';
 import Weapons from './Weapons';
 
 const Arsenal: React.FC = () => {
-  const menuItens: IMenuItem[] = [
+  const [menuItens, setMenuItens] = useState([
     {
       id: 0,
       name: 'Warframes',
@@ -26,13 +26,13 @@ const Arsenal: React.FC = () => {
       name: 'Arcanes',
       type: 'arcanes',
       selected: false,
-      render: (<Arcanes />)
+      render: (<Arcanes onClickBack={() => { onItemClick(2) }}  />)
     }
-  ]
+  ])
   const [selectedItem, setSelectedItem] = useState<number | undefined>(undefined);
 
   const onItemClick = useCallback((id: number) => {
-    menuItens.map((item, index) => {
+    setMenuItens(menuItens.map((item, index) => {
       if (index === id) {
         if (item.selected) {
           item.selected = false
@@ -45,7 +45,7 @@ const Arsenal: React.FC = () => {
         item.selected = false
       }
       return item
-    })
+    }))
   }, [menuItens])
 
   return (
