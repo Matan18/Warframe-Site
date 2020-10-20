@@ -1,0 +1,77 @@
+// Commonly Array
+export interface IWeapon {
+  name: string,
+  uniqueName: string,
+  secondsPerShot: number,
+  dmagePerShot: [
+    number
+  ],
+  magazineSize: number,
+  reloadTime: number,
+  totalDamage: number,
+  damagePerSecond: number,
+  trigger: string,
+  description: string,
+  accuracy: number,
+  criticalChance: number,
+  criticalMultiplier: number,
+  procChance: number,
+  fireRate: number,
+  slot: number,
+  noise: string,
+  sentinel: true,
+  masteryReq: number,
+  omegaAttenuation: number,
+  type: string,
+  buildPrice: number,
+  buildTime: number,
+  skipBuildTimePrice: number,
+  buildQuantity: number,
+  consumeOnBuild: true,
+  components: {
+    name: string,
+    uniqueName: string
+  },
+  imageName: string,
+  category: string,
+  tradable: true,
+  patchlogs: {
+    name: string,
+    date: string,
+    url: string,
+    additions: string,
+    changes: string,
+    fixes: string
+  },
+  ammo: number,
+  damage: number,
+  damageTypes: {
+    impact: number,
+    puncture: number,
+    slash: number,
+    heat: number,
+    cold: number,
+    electric: number,
+    toxin: number,
+    gas: number,
+    viral: number,
+    corrosive: number,
+    blast: number,
+    magnetic: number,
+    radiation: number,
+    true: number,
+    void: number
+  },
+  flight: number,
+  polarities: string,
+  projectile: string,
+  tags: [
+    string
+  ],
+  vaulted: true,
+  wikiaThumbnail: string,
+  wikiaUrl: string,
+  disposition: number,
+  releaseDate: string,
+  vaultDate: string
+}

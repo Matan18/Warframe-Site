@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react';
 
 import { Container, List, ListItem } from '../../styles/components/Arsenal/styles';
 import Warframes from './Warframes';
+import Weapons from './Weapons';
 
 const Arsenal: React.FC = () => {
   const menuItens: IMenuItem[] = [
@@ -17,7 +18,7 @@ const Arsenal: React.FC = () => {
       name: 'Weapons',
       type: 'weapons',
       selected: false,
-      render: (<h1>Weapons</h1>)
+      render: (<Weapons onClickBack={()=>{onItemClick(1)}}/>)
     },
     {
       id: 2,

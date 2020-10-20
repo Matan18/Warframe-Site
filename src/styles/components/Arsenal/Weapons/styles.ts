@@ -3,7 +3,7 @@ import { lighten } from "polished";
 
 export const Container = styled.div`
   background: #13242b;
-  width: 505px;
+  width: 500px;
   height: 350px;
 `;
 
@@ -18,6 +18,7 @@ export const List = styled.ul`
   &::-webkit-scrollbar{
     width: 9px;
   }
+
   &::-webkit-scrollbar-track{
     background-color: ${lighten(0.2, '#374248')};
   }
@@ -42,19 +43,18 @@ export const ListItem = styled.li`
   display: block;
   list-style-type: none;
   margin: 0px;
-
   &:nth-child(3n),&:nth-child(3n+1),&:nth-child(3n+2){
     float: left
   }
 `
 
-export const Warframe = styled.div`
+export const Weapon = styled.div`
   background: ${lighten(0.06, '#13242b')};
   border: #374248 solid 1px;
   width: 150px;
   height: 94px;
   margin: 5px 0px 10px 10px;
-  img {
+  img{
     margin: 0px;
     padding: 0px;
     width: 150px;
@@ -69,8 +69,8 @@ export const Warframe = styled.div`
     margin: 0;
     background: #fff;
     p{
-      color: #000;
       margin: 2px;
+      color: #000;
     }
   }
 `
