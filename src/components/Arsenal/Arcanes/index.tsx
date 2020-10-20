@@ -4,8 +4,13 @@ import { useFetch } from '../../../hooks/useFetch';
 import { IArcane } from './Arcane';
 
 import { Container, List, ListItem, ArcaneItem, TitleBox, Effect } from '../../../styles/components/Arsenal/Arcanes/styles';
+import { Button } from '../../../styles/components/BackButton/styles';
 
-const Arcanes: React.FC = () => {
+interface ArcanesProps {
+  onClickBack: () => void;
+}
+
+const Arcanes: React.FC<ArcanesProps> = ({ onClickBack }) => {
   const param = 'arcanes';
   const { data } = useFetch<IArcane[]>(param);
   const [arcanes, setArcanes] = useState(data);
@@ -49,6 +54,7 @@ const Arcanes: React.FC = () => {
           </ListItem>
         ))}
       </List >
+      <Button onClick={onClickBack} >VOLTAR</Button>
     </Container >
 
 
