@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 
 import { Container, List, ListItem } from '../../styles/components/Arsenal/styles';
+import Arcanes from './Arcanes';
 import Warframes from './Warframes';
 import Weapons from './Weapons';
 
@@ -11,21 +12,21 @@ const Arsenal: React.FC = () => {
       name: 'Warframes',
       type: 'warframes',
       selected: false,
-      render: (<Warframes onClickBack={()=>{onItemClick(0)}} />)
+      render: (<Warframes onClickBack={() => { onItemClick(0) }} />)
     },
     {
       id: 1,
       name: 'Weapons',
       type: 'weapons',
       selected: false,
-      render: (<Weapons onClickBack={()=>{onItemClick(1)}}/>)
+      render: (<Weapons onClickBack={() => { onItemClick(1) }} />)
     },
     {
       id: 2,
       name: 'Arcanes',
       type: 'arcanes',
       selected: false,
-      render: (<h1>Arcanes</h1>)
+      render: (<Arcanes />)
     }
   ]
   const [selectedItem, setSelectedItem] = useState<number | undefined>(undefined);
