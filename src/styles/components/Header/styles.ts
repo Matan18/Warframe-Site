@@ -8,8 +8,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 10vh;
-  max-height: 65px;
+  max-height: 100px;
 `;
 
 export const Title = styled.h4`
