@@ -3,7 +3,7 @@ import { lighten } from "polished";
 
 export const Container = styled.div`
   background: #13242b;
-  width: 505px;
+  width: 500px;
   height: 350px;
 `;
 
@@ -11,7 +11,7 @@ export const List = styled.ul`
   position: relative;
   margin: 0;
   padding: 0;
-  width: 505px;
+  width: 500px;
   height: 350px;
   overflow: auto;
 
