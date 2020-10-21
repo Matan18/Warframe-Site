@@ -27,6 +27,7 @@ export const ListItem = styled.li`
     margin: 0 5px;
     &.selected{
       background: #404f54;
+      padding: 3px 0;
       border: 1px solid #e4d873;
       border-bottom: 2px solid #e4d873;
       *{
