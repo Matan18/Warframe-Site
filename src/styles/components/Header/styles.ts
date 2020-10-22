@@ -9,6 +9,9 @@ export const Container = styled.div`
   flex-direction: column;
   width: 100%;
   max-height: 97px;
+  *{
+    z-index:99;
+  }
 `;
 
 export const Title = styled.h4`
