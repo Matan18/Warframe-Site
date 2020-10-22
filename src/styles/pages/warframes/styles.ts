@@ -96,6 +96,12 @@ export const Ability = styled.div`
 
 export const Mods = styled.div`
   background: ${lighten(0.03, '#1f1f1f')};
+  div{
+    padding: 0px;
+    margin: 0px;
+    background: none;
+    border: 0px;
+  }
 `
 export const MoreInfo = styled.div`
   display: flex;

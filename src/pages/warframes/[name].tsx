@@ -87,7 +87,9 @@ const Warframe: React.FC = () => {
               </Mods>
               <Mods>
                 <strong>Polaridades iniciais:</strong>
-                {warframe.polarities.map((polarity, index) => <Polarity key={index} src={polarity} />)}
+                <div>
+                  {warframe.polarities.map((polarity, index) => <Polarity key={index} src={polarity} />)}
+                </div>
               </Mods>
             </Status>
             <Thumb src={warframe.wikiaThumbnail} alt="" />
