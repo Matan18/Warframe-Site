@@ -3,16 +3,17 @@ export interface IWeapon {
   name: string,
   uniqueName: string,
   secondsPerShot: number,
+  totalDamage: number,
   dmagePerShot: [
     number
   ],
   magazineSize: number,
   reloadTime: number,
-  totalDamage: number,
   damagePerSecond: number,
   trigger: string,
   description: string,
   accuracy: number,
+  multishot: number,
   criticalChance: number,
   criticalMultiplier: number,
   procChance: number,
@@ -21,6 +22,7 @@ export interface IWeapon {
   noise: string,
   sentinel: true,
   masteryReq: number,
+  productCategory: string,
   omegaAttenuation: number,
   type: string,
   buildPrice: number,
@@ -28,10 +30,24 @@ export interface IWeapon {
   skipBuildTimePrice: number,
   buildQuantity: number,
   consumeOnBuild: true,
-  components: {
-    name: string,
-    uniqueName: string
-  },
+  components: [
+    {
+      uniqueName: string,
+      name: string,
+      description: string,
+      itemCount: number,
+      imageName: string,
+      tradable: boolean,
+      drops: [
+        {
+          location: string,
+          type: string,
+          chance: number,
+          rarity: string
+        }
+      ]
+    }
+  ]
   imageName: string,
   category: string,
   tradable: true,
@@ -39,9 +55,20 @@ export interface IWeapon {
     name: string,
     date: string,
     url: string,
+    imgUrl: string,
     additions: string,
     changes: string,
     fixes: string
+  },
+  areaAttack: {
+    name: string,
+    falloff: {
+      start: number,
+      end: number,
+      reduction: number
+    },
+    slash: number,
+    puncture: number,
   },
   ammo: number,
   damage: number,
@@ -63,7 +90,8 @@ export interface IWeapon {
     void: number
   },
   flight: number,
-  polarities: string,
+  marketCost: number,
+  polarities: [string],
   projectile: string,
   tags: [
     string
