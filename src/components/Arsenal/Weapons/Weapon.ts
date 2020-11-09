@@ -68,6 +68,7 @@ export interface IWeapon {
       reduction: number
     },
     slash: number,
+    blast: number,
     puncture: number,
   },
   ammo: number,

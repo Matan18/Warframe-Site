@@ -118,7 +118,7 @@ const Warframe: React.FC = () => {
                       <td>{`${component.tradable}`}</td>
                       {(component.drops) && (
                         <td className="link">
-                          <Link href={`/itens/search/${name + component.name}`}>
+                          <Link href={`/drops/search/${name + component.name}`}>
                             <p>Onde conseguir o {component.name}</p>
                           </Link>
                         </td>

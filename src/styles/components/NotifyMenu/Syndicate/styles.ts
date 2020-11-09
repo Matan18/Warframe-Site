@@ -26,7 +26,7 @@ export const List = styled.ul`
     }
 
     &::-webkit-scrollbar-track{
-      background-color: ${lighten(0.2,'#374248')};
+      background-color: ${lighten(0.2, '#374248')};
     }
 
     &::-webkit-scrollbar-thumb{
@@ -54,7 +54,7 @@ export const ItemList = styled.li`
       padding: 0px;
       margin: 8px 8px;
       border: #374248 solid 2px;
-      background: ${darken(0.05,'#13242b')};
+      background: ${darken(0.05, '#13242b')};
       color: #fff;
       display: flex;
       justify-content: space-between;
@@ -84,7 +84,8 @@ export const ItemList = styled.li`
           border-bottom: 0px;
           p{
 
-            align-self: flex-end;
+            min-width:100px;
+            align-self: center;
             justify-self: flex-end;
             border-top: 0px;
             margin: 0px 0px 0px 20px;
