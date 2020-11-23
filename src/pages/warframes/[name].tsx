@@ -92,7 +92,7 @@ const Warframe: React.FC = () => {
                 </div>
               </Mods>
             </Status>
-            <Thumb src={warframe.wikiaThumbnail} alt="" />
+            <Thumb src={`${warframe.wikiaThumbnail.split('.png')[0]}.png`} alt="" />
             <BuiltInfos className="builtInfos">
               <h2>Fabricação</h2>
               <table>

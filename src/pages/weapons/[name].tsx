@@ -125,7 +125,7 @@ const Weapons: React.FC = () => {
                 </div>
 
               </Status>
-              <Thumb src={weapon.wikiaThumbnail} />
+              <Thumb src={`${weapon.wikiaThumbnail.split('.png')[0]}.png`} />
               <BuiltInfos className="builtInfos">
                 <h2>Fabricação</h2>
                 <table>

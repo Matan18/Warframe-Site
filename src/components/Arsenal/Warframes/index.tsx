@@ -23,7 +23,7 @@ const Warframes: React.FC<WarframeProps> = ({ onClickBack }) => {
             <Link href={`/warframes/${warframe.name.toLowerCase()}`}>
               <Warframe >
                 {warframe.wikiaThumbnail ? (
-                  <img src={warframe.wikiaThumbnail} alt={`${warframe.name} Thumbnail`} />
+                  <img src={`${warframe.wikiaThumbnail.split('.png')[0]}.png`} alt={`${warframe.name} Thumbnail`} />
                 ) : (
                     <img src={WarframesPlaceholder} alt="PlaceholderImage" />
                   )}

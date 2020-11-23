@@ -24,7 +24,7 @@ const Weapons: React.FC<WeaponsProps> = ({ onClickBack }) => {
               <Weapon >
                 {(weapon.wikiaThumbnail) ? (
 
-                  <img src={weapon.wikiaThumbnail} alt={`${weapon.name} Thumbnail`} />
+                  <img src={`${weapon.wikiaThumbnail.split('.png')[0]}.png`} alt={`${weapon.name} Thumbnail`} />
                 ) : (
 
                     <img src={WarframesPlaceholder} alt="PlaceholderImage" />
