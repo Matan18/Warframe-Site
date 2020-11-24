@@ -71,10 +71,11 @@ interface IProgressiveBarProps {
   completion: number;
 }
 
-export const ProgressBar = styled.div<IProgressiveBarProps>`
+export const ProgressBar = styled.progress<IProgressiveBarProps>`
   align-self:center;
   background:#8257e6;
   height: 10px;
   width: 500px;
-  background:linear-gradient(to right, ${props => props.attackingFaction} ${props => props.completion}%, ${props => props.deffendingFaction} ${props => props.completion}%);
+  ::-webkit-progress-bar { background: ${props => props.deffendingFaction}; }
+  ::-webkit-progress-value { background: ${props => props.attackingFaction}; }
 `

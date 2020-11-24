@@ -27,6 +27,8 @@ const Invasions: React.FC = () => {
             <ListItem key={invasion.id}>
               <strong>{invasion.node}: {invasion.desc}</strong>
               <ProgressBar
+                max={100}
+                value={invasion.completion}
                 attackingFaction={cores[invasion.attackingFaction]}
                 deffendingFaction={cores[invasion.defendingFaction]}
                 completion={(invasion.completion > 100 ? 100 : (invasion.completion < 0 ? 0 : invasion.completion))}
