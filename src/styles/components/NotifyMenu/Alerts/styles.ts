@@ -45,7 +45,7 @@ export const ListItem = styled.li`
   color: #fff;
   display: flex;
   flex-direction: column;
-  p{
+  time{
     margin: 5px auto;
     padding: 0;
   }

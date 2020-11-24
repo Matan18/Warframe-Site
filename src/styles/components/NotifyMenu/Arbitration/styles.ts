@@ -36,7 +36,7 @@ export const Description = styled.div`
   flex-direction: column;
   p{
     margin: 0;
-    &+p+p{
+    &+p+time{
       margin: auto;
     }
   }

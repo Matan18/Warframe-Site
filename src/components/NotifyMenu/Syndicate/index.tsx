@@ -27,26 +27,24 @@ const Syndicate: React.FC = () => {
                     <strong>{mission.type}</strong>
                     <div>
                       <p>{syndicate.syndicate}</p>
-                      <p>{syndicate.eta}</p>
+                      <time dateTime={syndicate.eta}>{syndicate.eta}</time>
                     </div>
                   </div>
                 </ItemList>
               ))}
               {syndicate.nodes.map(mission => (
-
                 <ItemList key={mission}>
                   <Flag src={syndicate.syndicate} />
                   <div>
                     <strong>{mission}</strong>
                     <div>
                       <p>{syndicate.syndicate}</p>
-                      <p>{syndicate.eta}</p>
+                      <time dateTime={syndicate.eta}>{syndicate.eta}</time>
                     </div>
                   </div>
                 </ItemList>
               ))}
             </ul>
-
           </li>
         ))}
       </List>

@@ -5,4 +5,4 @@ Esse é um site que estou desenvolvendo para mostar informações sobre os objet
 - [x] Trocar as divs menus por nav
 - [x] Adicionar tratativa para quando o click acontece fora dos menus
 - [x] Trocar as barras feitas com div em Invasões por <progress>
-- [ ] Trocar todos as horas por <time>
+- [x] Trocar todos as horas por <time>

@@ -25,9 +25,14 @@ const CetusCycle: React.FC = () => {
   const expiry = useMemo(() => {
     if (cetusStatus) {
       const data = new Date(cetusStatus.expiry)
-      return `${data.getHours()}:${data.getMinutes()} hrs`
+      const minutes = data.getMinutes() < 10 ? (`0${data.getMinutes()}`) : (data.getMinutes())
+      const returnded = {
+        date: `${data.getHours()}:${minutes} hrs`,
+        fullDate: `${cetusStatus.expiry}`
+      }
+      return returnded
     }
-    return ""
+    return { date: '', fullDate: '' }
   }, [cetusStatus])
 
   return (
@@ -37,7 +42,7 @@ const CetusCycle: React.FC = () => {
         (
           <div >
             <h1>{worldCycle[cetusStatus.state].name}</h1>
-            <p>Vira {worldCycle[cetusStatus.state].opposite} às {expiry}</p>
+            <p>Vira {worldCycle[cetusStatus.state].opposite} às <time dateTime={expiry.fullDate}>{expiry.date}</time></p>
           </div>
         )
       }

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { PlatformContext } from '../../../../context/Platform';
 import { useFetch } from '../../../../hooks/useFetch';
 import { IArbitrationData } from './Arbitration';
@@ -10,6 +10,10 @@ const Arbitration: React.FC = () => {
   const { platform } = useContext(PlatformContext);
   const param = 'arbitration';
   const { data: arbitration } = useFetch<IArbitrationData>(param, platform);
+
+  const expiry = useMemo(() => {
+    return countDown(arbitration.expiry)
+  }, [arbitration])
 
   return (
     <Container>
@@ -27,8 +31,8 @@ const Arbitration: React.FC = () => {
             </p>
             <p>
               (Essas missões geralmente requerem que você tenha completado todo o Mapa Estelar)
-          </p>
-            <p>{countDown(arbitration.expiry)}</p>
+            </p>
+            <time dateTime={expiry}>{countDown(arbitration.expiry)}</time>
           </Description>
         </Content>
       ) : (

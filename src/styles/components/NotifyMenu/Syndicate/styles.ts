@@ -93,17 +93,24 @@ export const ItemList = styled.li`
           justify-content: flex-end;
           border-bottom: 0px;
           p{
-
             min-width:100px;
+            text-align:center;
             align-self: center;
             justify-self: flex-end;
             border-top: 0px;
             margin: 0px 0px 0px 20px;
           }
+          time{
+            min-width:100px;
+            margin: 0px 0px 0px 20px;
+
+            justify-self: flex-end;
+          }
         }
         strong{
           margin: 8px;
           padding: 0px;
+          text-align:right;
         }
         p{
           border-top: 0px;

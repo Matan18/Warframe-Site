@@ -25,9 +25,14 @@ const EarthCycle: React.FC = () => {
   const expiry = useMemo(() => {
     if (earthCycle) {
       const data = new Date(earthCycle.expiry)
-      return `${data.getHours()}:${data.getMinutes()} hrs`
+      const minutes = data.getMinutes() < 10 ? (`0${data.getMinutes()}`) : (data.getMinutes())
+      const returnded = {
+        date: `${data.getHours()}:${minutes} hrs`,
+        fullDate: `${earthCycle.expiry}`
+      }
+      return returnded
     }
-    return ""
+    return { date: '', fullDate: '' }
   }, [earthCycle])
 
   return (
@@ -37,7 +42,7 @@ const EarthCycle: React.FC = () => {
         (
           <div >
             <h1>{worldCycle[earthCycle.state].name}</h1>
-            <p>Vira {worldCycle[earthCycle.state].opposite} às {expiry}</p>
+            <p>Vira {worldCycle[earthCycle.state].opposite} às <time dateTime={expiry.fullDate}>{expiry.date}</time></p>
           </div>
         )}
     </Container >

@@ -25,9 +25,14 @@ const VallisCycle: React.FC = () => {
   const expiry = useMemo(() => {
     if (vallisStatus) {
       const data = new Date(vallisStatus.expiry)
-      return `${data.getHours()}:${data.getMinutes()} hrs`
+      const minutes = data.getMinutes() < 10 ? (`0${data.getMinutes()}`) : (data.getMinutes())
+      const returnded = {
+        date: `${data.getHours()}:${minutes} hrs`,
+        fullDate: `${vallisStatus.expiry}`
+      }
+      return returnded
     }
-    return ""
+    return { date: '', fullDate: '' }
   }, [vallisStatus])
 
   return (
@@ -37,7 +42,7 @@ const VallisCycle: React.FC = () => {
         (
           <div >
             <h1>{worldCycle[vallisStatus.state].name}</h1>
-            <p>Vira {worldCycle[vallisStatus.state].opposite} às {expiry}</p>
+            <p>Vira {worldCycle[vallisStatus.state].opposite} às <time dateTime={expiry.fullDate}>{expiry.date}</time></p>
           </div>
         )}
     </Container >
