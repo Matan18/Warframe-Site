@@ -1,38 +1,23 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { Container, List, ListItem } from '../../styles/components/Arsenal/styles';
 import Arcanes from './Arcanes';
 import Warframes from './Warframes';
 import Weapons from './Weapons';
 
-const Arsenal: React.FC = () => {
-  const [menuItens, setMenuItens] = useState([
-    {
-      id: 0,
-      name: 'Warframes',
-      type: 'warframes',
-      selected: false,
-      render: (<Warframes onClickBack={() => { onItemClick(0) }} />)
-    },
-    {
-      id: 1,
-      name: 'Weapons',
-      type: 'weapons',
-      selected: false,
-      render: (<Weapons onClickBack={() => { onItemClick(1) }} />)
-    },
-    {
-      id: 2,
-      name: 'Arcanes',
-      type: 'arcanes',
-      selected: false,
-      render: (<Arcanes onClickBack={() => { onItemClick(2) }}  />)
-    }
-  ])
+interface ArsenalProps {
+  hide: (func: (id: number) => void) => void;
+}
+
+const Arsenal: React.FC<ArsenalProps> = ({ hide }) => {
+  const [menuItens, setMenuItens] = useState(MenuItens)
   const [selectedItem, setSelectedItem] = useState<number | undefined>(undefined);
 
   const onItemClick = useCallback((id: number) => {
     setMenuItens(menuItens.map((item, index) => {
+      if (id === -1) {
+        setSelectedItem(undefined);
+      }
       if (index === id) {
         if (item.selected) {
           item.selected = false
@@ -48,17 +33,25 @@ const Arsenal: React.FC = () => {
     }))
   }, [menuItens])
 
+  useEffect(() => {
+    hide(onItemClick)
+  }, [onItemClick])
+
   return (
     <Container>
-      <List>
-        {menuItens.map(item => (
-          <ListItem key={item.id}>
-            <div onClick={() => onItemClick(item.id)} className={item.selected ? 'selected' : ""}>
-              <p>{item.name}</p>
-            </div>
-          </ListItem>
-        ))}
-      </List>
+      <nav>
+        <List>
+          {menuItens.map(item => (
+            <ListItem key={item.id}>
+              <div
+                onClick={(ev) => { onItemClick(item.id); ev.stopPropagation(); }}
+                className={item.selected ? 'selected' : ""}>
+                <p>{item.name}</p>
+              </div>
+            </ListItem>
+          ))}
+        </List>
+      </nav>
       {(menuItens[selectedItem]?.render)}
     </Container>
   )
@@ -74,4 +67,27 @@ interface IMenuItem {
   render?: JSX.Element
 }
 
+const MenuItens: IMenuItem[] = [
+  {
+    id: 0,
+    name: 'Warframes',
+    type: 'warframes',
+    selected: false,
+    render: (<Warframes />)
+  },
+  {
+    id: 1,
+    name: 'Weapons',
+    type: 'weapons',
+    selected: false,
+    render: (<Weapons />)
+  },
+  {
+    id: 2,
+    name: 'Arcanes',
+    type: 'arcanes',
+    selected: false,
+    render: (<Arcanes />)
+  }
+];
 

@@ -4,7 +4,7 @@ export const Container = styled.div`
   max-width: 505px;
 `;
 
-export const List = styled.div`
+export const List = styled.ul`
   background: #13242b;
   display: flex;
   list-style: none;

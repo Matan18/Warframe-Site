@@ -4,17 +4,11 @@ import { useFetch } from '../../../hooks/useFetch';
 import { IArcane } from './Arcane';
 
 import { Container, List, ListItem, ArcaneItem, TitleBox, Effect } from '../../../styles/components/Arsenal/Arcanes/styles';
-import { Button } from '../../../styles/components/BackButton/styles';
 
-interface ArcanesProps {
-  onClickBack: () => void;
-}
-
-const Arcanes: React.FC<ArcanesProps> = ({ onClickBack }) => {
+const Arcanes: React.FC = () => {
   const param = 'arcanes';
   const { data } = useFetch<IArcane[]>(param);
   const [arcanes, setArcanes] = useState(data);
-
 
   function onSelect(regex: string) {
     setArcanes(arcanes.map(arcane => {
@@ -34,11 +28,17 @@ const Arcanes: React.FC<ArcanesProps> = ({ onClickBack }) => {
     <Container>
       <List>
         {(!!arcanes) && arcanes.map(arcane => (
-
           <ListItem key={arcane.name}>
-            <ArcaneItem className={arcane.selected ? 'selected' : ''} onClick={() => onSelect(arcane.regex)}>
+            <ArcaneItem
+              className={arcane.selected ? 'selected' : ''}
+              onClick={(ev) => {
+                onSelect(arcane.regex);
+                ev.stopPropagation()
+              }}>
               <div>
-                <img src={ArcanePlaceholder} alt="PlaceholderImage" />
+                <img
+                  src={ArcanePlaceholder}
+                  alt="PlaceholderImage" />
                 <TitleBox>
                   <p>{arcane.name}</p>
                 </TitleBox>
@@ -50,14 +50,10 @@ const Arcanes: React.FC<ArcanesProps> = ({ onClickBack }) => {
                 </Effect>
               )}
             </ArcaneItem>
-
           </ListItem>
         ))}
       </List >
-      <Button onClick={onClickBack} >VOLTAR</Button>
     </Container >
-
-
   );
 }
 

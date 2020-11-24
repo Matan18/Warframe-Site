@@ -19,31 +19,33 @@ const Syndicate: React.FC = () => {
       <List>
         {(syndicateList) && syndicateList.map(syndicate => (
           <li key={syndicate.id}>
-            {syndicate.jobs.map(mission => (
-              <ItemList key={mission.id}>
-                <Flag src={syndicate.syndicate} />
-                <div>
-                  <strong>{mission.type}</strong>
+            <ul>
+              {syndicate.jobs.map(mission => (
+                <ItemList key={mission.id}>
+                  <Flag src={syndicate.syndicate} />
                   <div>
-                    <p>{syndicate.syndicate}</p>
-                    <p>{syndicate.eta}</p>
+                    <strong>{mission.type}</strong>
+                    <div>
+                      <p>{syndicate.syndicate}</p>
+                      <p>{syndicate.eta}</p>
+                    </div>
                   </div>
-                </div>
-              </ItemList>
-            ))}
-            {syndicate.nodes.map(mission => (
+                </ItemList>
+              ))}
+              {syndicate.nodes.map(mission => (
 
-              <ItemList >
-                <Flag src={syndicate.syndicate} />
-                <div>
-                  <strong>{mission}</strong>
+                <ItemList key={mission}>
+                  <Flag src={syndicate.syndicate} />
                   <div>
-                    <p>{syndicate.syndicate}</p>
-                    <p>{syndicate.eta}</p>
+                    <strong>{mission}</strong>
+                    <div>
+                      <p>{syndicate.syndicate}</p>
+                      <p>{syndicate.eta}</p>
+                    </div>
                   </div>
-                </div>
-              </ItemList>
-            ))}
+                </ItemList>
+              ))}
+            </ul>
 
           </li>
         ))}

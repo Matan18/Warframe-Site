@@ -4,14 +4,9 @@ import WarframesPlaceholder from "../../../assets/warframesPlaceholder.png";
 import { IWeapon } from './Weapon';
 
 import { Container, List, ListItem, Weapon } from '../../../styles/components/Arsenal/Weapons/styles';
-import { Button } from '../../../styles/components/BackButton/styles';
 import Link from 'next/link';
 
-interface WeaponsProps {
-  onClickBack: () => void;
-}
-
-const Weapons: React.FC<WeaponsProps> = ({ onClickBack }) => {
+const Weapons: React.FC = () => {
   const param = 'weapons';
   const { data: weapons } = useFetch<IWeapon[]>(param);
 
@@ -23,10 +18,8 @@ const Weapons: React.FC<WeaponsProps> = ({ onClickBack }) => {
             <Link href={`/weapons/${weapon.name.toLowerCase()}`}>
               <Weapon >
                 {(weapon.wikiaThumbnail) ? (
-
                   <img src={`${weapon.wikiaThumbnail.split('.png')[0]}.png`} alt={`${weapon.name} Thumbnail`} />
                 ) : (
-
                     <img src={WarframesPlaceholder} alt="PlaceholderImage" />
                   )}
                 <div>
@@ -37,7 +30,6 @@ const Weapons: React.FC<WeaponsProps> = ({ onClickBack }) => {
           </ListItem>
         ))}
       </List>
-      <Button onClick={onClickBack} >VOLTAR</Button>
     </Container>
   );
 }

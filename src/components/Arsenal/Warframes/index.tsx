@@ -4,13 +4,9 @@ import WarframesPlaceholder from "../../../assets/warframesPlaceholder.png";
 import { IWarframe } from './Warframe';
 import Link from "next/link";
 
-import { Button } from "../../../styles/components/BackButton/styles";
 import { Container, List, ListItem, Warframe } from '../../../styles/components/Arsenal/Warframes/styles';
 
-interface WarframeProps {
-  onClickBack: () => void;
-}
-const Warframes: React.FC<WarframeProps> = ({ onClickBack }) => {
+const Warframes: React.FC = () => {
   const param = 'warframes';
   const { data: warframes } = useFetch<IWarframe[]>(param);
 
@@ -18,8 +14,7 @@ const Warframes: React.FC<WarframeProps> = ({ onClickBack }) => {
     <Container>
       <List>
         {(!!warframes) && warframes.map(warframe => (
-
-          <ListItem  key={warframe.name}  >
+          <ListItem key={warframe.name}  >
             <Link href={`/warframes/${warframe.name.toLowerCase()}`}>
               <Warframe >
                 {warframe.wikiaThumbnail ? (
@@ -33,10 +28,8 @@ const Warframes: React.FC<WarframeProps> = ({ onClickBack }) => {
               </Warframe>
             </Link>
           </ListItem>
-
         ))}
       </List>
-      <Button onClick={onClickBack} >VOLTAR</Button>
     </Container>
   )
 }

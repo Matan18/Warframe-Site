@@ -43,9 +43,19 @@ export const List = styled.ul`
     &::-webkit-scrollbar-corner{
       background-color: black;
     }
-
-    ul{
-      overflow: hidden
+    li{
+      margin:0px;
+      margin-top:0px;
+      padding:0px;
+      ul{
+        margin:0px;
+        padding:0px;
+        overflow: hidden;
+        li{
+          margin: 8px;
+          margin-top:0px;
+        }
+      }
     }
 `
 

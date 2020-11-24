@@ -30,7 +30,7 @@ export const List = styled.ul`
   }
 
   &::-webkit-scrollbar-button{
-    background-color: #000;
+    background-color: ${lighten(0.2, '#374248')};
     height: 5px;
   }
 
